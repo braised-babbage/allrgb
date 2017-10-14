@@ -1,5 +1,5 @@
 (defpackage :allrgb
-  (:use :common-lisp :zpng))
+  (:use :common-lisp :zpng :fare-memoization))
 
 (in-package :allrgb)
 
@@ -90,6 +90,7 @@
 			 (out-of-bounds x1 y1))))
 	       candidates)))
 
+(memoize 'neighbors)
 
 ;;; Pixel search / placement
 
