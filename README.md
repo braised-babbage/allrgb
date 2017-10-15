@@ -10,5 +10,9 @@ Some lisp code for making images with a 1-1 correspondence between pixels and rg
 #### Todo
 
 The current code is inefficient in a number of ways. A few candidate improvements:
-+ precompute or cache neighborhood info
 + lol don't use lists for sets
++ more careful data layout and memory use
+
+#### Related ideas
+
+[Tweetable mathematical art](https://codegolf.stackexchange.com/questions/35569/tweetable-mathematical-art)
