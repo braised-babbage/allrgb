@@ -102,11 +102,11 @@
 
 (defun rgb-pixel-fit (img rgb x y)
   "Measure the quality of an rgb value at a given pixel."
-  (apply *agg-fn* (mapcar #'(lambda (pt)
-			    (dist rgb (image-rgb img (car pt) (cdr pt))))
-			  (remove-if-not #'(lambda (pt)
-					     (visited img (car pt) (cdr pt)))
-					(neighbors x y)))))
+  (let ((nhbrs (neighbors x y)))
+    (apply *agg-fn*
+	   (loop for pt in nhbrs
+	      when (visited img (car pt) (cdr pt))
+	      collect (dist rgb (image-rgb img (car pt) (cdr pt)))))))
 
 (defun minimum (list key)
   "Get the minimum element of list, according to the specified key."
